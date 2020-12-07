@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public static final int RESULT_ENABLE = 11;
     private ActivityManager activityManager;
     private ComponentName compName;
+    private Boolean first = true;
 
     // android:theme="@style/Theme.LockDevice"
     // android:theme="@android:style/Theme.NoDisplay"
@@ -34,17 +35,33 @@ public class MainActivity extends AppCompatActivity {
             compName = new ComponentName(this, LDAdmin.class);
             boolean active = this.devicePolicyManager.isAdminActive(compName);
             if (active) {
-                //this.devicePolicyManager.lockNow();
-                //quitApp();
+                this.devicePolicyManager.lockNow();
+                quitApp();
             } else {
-                //Toast.makeText(this, R.string.service_disable, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.service_disable, Toast.LENGTH_SHORT).show();
                 adminService();
             }
         }
+        try {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+        } catch (Exception e2) {
+            quitApp();
+        }
         //setTheme(R.style.Theme_LockDevice);
         //setTheme("@style/Theme.LockDevice");
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (!first) {
+            quitApp();
+        } else {
+            first = false;
+        }
     }
 
 
