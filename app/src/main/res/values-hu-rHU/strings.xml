@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LockDevice</string>
+    <string name="lockdev">Eszköz zárolása</string>
+    <string name="title">Eszköz zárolása és a kijelző lekapcsolása</string>
+    <string name="quit">Kilépés</string>
+    <string name="devadmin">Eszköz adminisztrátor engedélyezése/tiltása</string>
+    <string name="adminutton">Engedélyezés/Letiltás</string>
+    <string name="service_enable">Eszközadminisztrátor szolgáltatás: engedélyezve.</string>
+    <string name="service_disable">Eszközadminisztrátor szolgáltatás: letiltva.</string>
+    <string name="needadmin">Engedélyezni kell a programot eszköz adminisztratorként, hogy zárolni tudja az eszközt.</string>
+</resources>
