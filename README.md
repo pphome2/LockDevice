@@ -9,7 +9,7 @@ Android Lock Device App
 Android-ban a hosszan nyomva tartott `Home` gomb alkalmazást tud elindítani.
 A `LockDevice` app zárolja az eszközt, nem kell használni a fizikai `Power` gombot.
 
-Használat:
+**Használat:**
 
 `Beállítások/Biztonság/Eszközrendszergazdai alkalmazások/LockDevice` engedélyezése.
 
