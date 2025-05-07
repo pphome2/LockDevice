@@ -1,21 +1,15 @@
 package com.wswdteam.lockdevice;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
-import android.app.ActivityManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private DevicePolicyManager devicePolicyManager;
-    public static final int RESULT_ENABLE = 11;
-    private ActivityManager activityManager;
+    //public static final int RESULT_ENABLE = 11;
     private ComponentName compName;
     private Boolean first = true;
 
@@ -25,21 +19,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        devicePolicyManager = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
+        DevicePolicyManager devicePolicyManager = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
 
         try {
-            this.devicePolicyManager.lockNow();
+            devicePolicyManager.lockNow();
             quitApp();
         } catch (Exception e) {
-            activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+            //ActivityManager activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
             compName = new ComponentName(this, LDAdmin.class);
-            boolean active = this.devicePolicyManager.isAdminActive(compName);
+            boolean active = devicePolicyManager.isAdminActive(compName);
             if (active) {
-                this.devicePolicyManager.lockNow();
+                devicePolicyManager.lockNow();
                 quitApp();
             } else {
                 Toast.makeText(this, R.string.service_disable, Toast.LENGTH_SHORT).show();
                 adminService();
+                quitApp();
             }
         }
         try {
@@ -48,8 +43,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e2) {
             quitApp();
         }
-        //setTheme(R.style.Theme_LockDevice);
-        //setTheme("@style/Theme.LockDevice");
 
     }
 
@@ -64,29 +57,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-
-    public void lockDev(View v) {
-        //DevicePolicyManager devicePolicyManager;
-        boolean active = this.devicePolicyManager.isAdminActive(compName);
-        //active = true;
-        if (active) {
-            this.devicePolicyManager.lockNow();
-            quitApp();
-        } else {
-            Toast.makeText(this, R.string.service_disable, Toast.LENGTH_SHORT).show();
-        }
-    }
-
-
-
     public void adminService() {
         //boolean active = devicePolicyManager.isAdminActive(compName);
         //if (!active) {
         Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
         intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN, compName);
         intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION, R.string.needadmin);
-        startActivityForResult(intent, RESULT_ENABLE);
+        //startActivityForResult(intent, RESULT_ENABLE);
         //}else{
             //devicePolicyManager.removeActiveAdmin(compName);
         //}
@@ -98,14 +75,6 @@ public class MainActivity extends AppCompatActivity {
         int pid = android.os.Process.myPid();
         android.os.Process.killProcess(pid);
     }
-
-
-    public void quitApp2(View v) {
-        finishAndRemoveTask();
-        int pid = android.os.Process.myPid();
-        android.os.Process.killProcess(pid);
-    }
-
 
 
 }
