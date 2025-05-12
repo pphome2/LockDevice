@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LockDevice</string>
+    <string name="lockdev">Eszköz zárolása és a kijelző kikapcsolása</string>
+    <string name="title">Eszköz zárolása</string>
+    <string name="quit">Kilépés</string>
+    <string name="devadmin">Eszköz adminisztrátori szerep engedélyezése/letiltása</string>
+    <string name="adminutton">Engedélyezés/letiltás</string>
+    <string name="service_enable">Eszköz adminisztrátori szerep engedélyezve</string>
+    <string name="service_disable">Eszköz adminisztrátori szerep letiltva</string>
+</resources>

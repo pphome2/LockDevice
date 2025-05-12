@@ -5,7 +5,6 @@
     <string name="quit">Quit</string>
     <string name="devadmin">Device administrator service enable/disable</string>
     <string name="adminutton">Enable/disable</string>
-    <string name="service_enable">Device adminsitrator service: enabled.</string>
-    <string name="service_disable">Device adminsitrator service: disabled.</string>
-    <string name="needadmin">Need device admin to lock device.</string>
+    <string name="service_enable">Device administrator service enabled</string>
+    <string name="service_disable">Device administrator service disabled</string>
 </resources>

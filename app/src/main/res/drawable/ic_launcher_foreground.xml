@@ -3,7 +3,11 @@
     android:height="108dp"
     android:viewportWidth="24"
     android:viewportHeight="24"
+<<<<<<< HEAD
     android:tint="#044771">
+=======
+    android:tint="#034D7B">
+>>>>>>> 20c8d00 (20250512)
   <group android:scaleX="0.4048683"
       android:scaleY="0.4048683"
       android:translateX="7.1415806"
