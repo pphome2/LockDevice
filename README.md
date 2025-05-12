@@ -12,8 +12,4 @@ A `LockDevice` app zárolja az eszközt, nem kell használni a fizikai `Power` g
 
 `Beállítások/Biztonság/Eszközrendszergazdai alkalmazások/LockDevice` engedélyezése.
 
-`Beállítások/Alkalmazások és értesítések/Alapértelmezett alkalmazások/Segédalkalmazás` 
-alatt a `Segédalkalmazás` a `LockDevice` legyen. Ez az alkalmazás indul el ha hosszan 
-nyomjuk a `Home` gombot.
-
-Az alkalmazás ikonból is indulhat.
+Az alkalmazás ikonból indul és azonnal kilép.
